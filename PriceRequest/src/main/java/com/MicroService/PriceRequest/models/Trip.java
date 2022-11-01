@@ -2,13 +2,12 @@ package com.MicroService.PriceRequest.models;
 
 import com.MicroService.PriceRequest.models.Enums.Companies;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.List;
+
+import static jakarta.persistence.GenerationType.SEQUENCE;
 
 @Entity
 @Getter
@@ -18,18 +17,18 @@ import java.util.List;
 public class Trip {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
 
-    private Enum<Companies> Company;
+    private String company;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private Place place_origin_id;
+    private Place origin;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    private Place place_destination_id;
+    private Place destination;
     @Column
-    private boolean luggage_allowance;
+    private boolean luggage;
     @Column
     private LocalDate date;
     @Column

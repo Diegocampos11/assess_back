@@ -17,7 +17,7 @@ public class Place {
     private int id;
     @Column
 
-    private Enum<CityNames> name;
+    private String name;
 
 
 
