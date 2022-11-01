@@ -14,7 +14,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping(path = "/api/trips")
 public class PriceRequestController {
-
     public PriceRequestRepository repository;
 
     public PriceRequestController(PriceRequestRepository repository) {
