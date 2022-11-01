@@ -11,6 +11,6 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     private boolean baggage;
-    private Passenger passenger;
-    private Trip trip;
+    private String passenger;
+    private String trip;
 }
