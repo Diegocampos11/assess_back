@@ -16,9 +16,9 @@ public class Place {
     @GeneratedValue
     private int id;
     @Column
-
     private String name;
-
+    @Column
+    private String img_url;
 
 
 }

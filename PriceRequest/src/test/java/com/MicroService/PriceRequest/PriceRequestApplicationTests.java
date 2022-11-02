@@ -19,8 +19,6 @@ import java.util.List;
 @SpringBootTest
 class PriceRequestApplicationTests {
 
-
-
 	@Autowired
 	PriceRequestController controller ;
 
