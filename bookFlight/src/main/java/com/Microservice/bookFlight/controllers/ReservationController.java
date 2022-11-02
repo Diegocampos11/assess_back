@@ -1,4 +1,4 @@
-package com.Microservice.bookFlight.controller;
+package com.Microservice.bookFlight.controllers;
 
 
 

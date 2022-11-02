@@ -1,9 +1,6 @@
-package com.Microservice.bookFlight.models;
+package com.Microservice.bookFlight.pojo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,25 +9,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;
 
-
+@Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Passenger {
-    @Autowired
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+    @Column
     private String name;
-    @Autowired
+    @Column
     private String surname;
-    @Autowired
+    @Column
     private String nationality;
-    @Autowired
+    @Column
     private String birthdate;
-    @Autowired
+    @Column
     private boolean needLuggage;
     @Override
     public String toString() {
         return "Passenger{" +
+                ", id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", nationality='" + nationality + '\'' +
