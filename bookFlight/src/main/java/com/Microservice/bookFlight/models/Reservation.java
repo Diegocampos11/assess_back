@@ -1,16 +1,27 @@
 package com.Microservice.bookFlight.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.Microservice.bookFlight.models.Passenger;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 
-@Entity
+import java.util.List;
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Reservation {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id;
-    private boolean baggage;
-    private String passenger;
-    private String trip;
+    @Autowired
+    private int id_flight;
+    @Autowired
+    private List<Passenger> passengers;
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "id_flight=" + id_flight +
+                ", passengers=" + passengers +
+                '}';
+    }
 }
