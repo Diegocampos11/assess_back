@@ -13,6 +13,7 @@ public class PriceRequestApplication {
 
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(PriceRequestApplication.class, args);
 	}
 

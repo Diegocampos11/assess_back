@@ -1,9 +1,9 @@
 
-INSERT INTO place (id, name) VALUES (1, 'Valladolid');
-INSERT INTO place (id, name) VALUES (2, 'Murcia');
-INSERT INTO place (id, name) VALUES (3, 'Sevilla');
-INSERT INTO place (id, name) VALUES (4, 'Tokio');
-INSERT INTO place (id, name) VALUES (5, 'Madrid');
+INSERT INTO place (id, name, img_url) VALUES (1, 'Valladolid','https://jesusantaroca.files.wordpress.com/2012/06/el-cuchillejo.jpg');
+INSERT INTO place (id, name, img_url) VALUES (2, 'Murcia','https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Salzillos_-_Burlas.jpg/1200px-Salzillos_-_Burlas.jpg');
+INSERT INTO place (id, name,img_url) VALUES (3, 'Sevilla', 'https://a.cdn-hotels.com/gdcs/production72/d128/7da38149-dbcb-4273-922a-fd240e3b9f71.jpg?impolicy=fcrop&w=800&h=533&q=medium');
+INSERT INTO place (id, name,img_url) VALUES (4, 'Tokio','https://www.gotokyo.org/es/plan/tokyo-outline/images/main.jpg');
+INSERT INTO place (id, name,img_url) VALUES (5, 'Madrid','https://upload.wikimedia.org/wikipedia/commons/4/44/Plaza_Mayor_de_Madrid_06.jpg');
 
 INSERT INTO trip (company, origin_id, destination_id, luggage, date, price)
 VALUES
