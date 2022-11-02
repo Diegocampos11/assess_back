@@ -19,15 +19,16 @@ import java.util.List;
 @SpringBootTest
 class PriceRequestApplicationTests {
 
-	@Autowired
-	private PriceRequestRepository repository;
 
-	PriceRequestController controller = new PriceRequestController(repository);
+
+	@Autowired
+	PriceRequestController controller ;
 
 	@Test
 	void getByCompanyName_CompanyNameExist_ReturnsOK() {
 		ResponseEntity<List<Trip>>res = controller.getByAirlines("Ryanair");
-		Assert.assertEquals(HttpStatus.OK, res.getStatusCode());
+		System.out.println(res.getBody());
+		Assert.assertEquals(HttpStatus.ACCEPTED, res.getStatusCode());
 
 	}
 
