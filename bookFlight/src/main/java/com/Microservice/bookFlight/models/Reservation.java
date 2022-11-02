@@ -21,15 +21,16 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @Column
-    private int idFlight;
+    private int id_flight;
     @Column
-    @OneToMany(fetch = FetchType.EAGER)
-    @JsonIgnore
+    private double price;
+    @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     private List<Passenger> passengers;
     @Override
     public String toString() {
         return "Reservation{" +
-                "id_flight=" + idFlight +
+                "id_flight=" + id_flight +
+                "price=" + price +
                 ", passengers=" + passengers +
                 '}';
     }

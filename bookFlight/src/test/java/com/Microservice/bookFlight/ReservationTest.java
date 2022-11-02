@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,16 +23,16 @@ class ReservationTest {
         List<Passenger> passengerListExample = new ArrayList<Passenger>();
         passengerListExample.add(
                 new Passenger(
-                        null,
+                        1,
                         "name",
                         "surname",
                         "nationality",
-                        "birthdate",
+                        LocalDate.now(),
                         false
                 )
         );
-        Reservation reservationExample = new Reservation(1, 1, passengerListExample);
-        int idReservation = reservationService.addReservation(reservationExample);
-        assertEquals(reservationExample.toString(), reservationService.getReservation(idReservation).toString());
+        Reservation reservationExample = new Reservation(1, 1, 60, passengerListExample);
+        Reservation reservationReturned = reservationService.addReservation(new Reservation(1, 1, 60, passengerListExample));
+        assertEquals(reservationExample.toString(), reservationReturned.toString());
     }
 }
