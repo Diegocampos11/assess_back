@@ -45,7 +45,6 @@ public class PriceRequestService {
         List<Trip> res = repository.findByCompany(name);
         return new ResponseEntity<>(res, HttpStatus.ACCEPTED);
 
-
     }
 
     public ResponseEntity<List<Trip>> getByDate(LocalDate date) {
