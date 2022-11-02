@@ -1,15 +1,11 @@
 package com.Microservice.bookFlight.models;
 
-
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.time.LocalDate;
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -19,7 +15,7 @@ import java.util.List;
 public class Trip {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int Id;
     @Column
     private String Company;
@@ -28,9 +24,9 @@ public class Trip {
     @Column
     private int place_destination_id;
     @Column
-    private boolean Luggage_allowance;
+    private boolean luggage_allowance;
     @Column
-    private LocalDate date;
+    private LocalDateTime dateTime;
 
 }
 
