@@ -62,7 +62,10 @@ public class TripService {
             return new ResponseEntity<>(res, HttpStatus.ACCEPTED);
         }
     }
-    public ResponseEntity<List<Trip>> getByOriginAndDestination(){
-        return null;
+    public ResponseEntity<List<Trip>> getByOriginAndDestination(String origin, String destination){
+        List<Trip> res = repository.findByOrigin_nameAndDestination_name(origin, destination);
+        return new ResponseEntity<>(res, HttpStatus.ACCEPTED);
     }
+
+
 }

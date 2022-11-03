@@ -66,4 +66,11 @@ public class TripController {
     public ResponseEntity<?> getById(@PathVariable int id) {
         return service.getById(id);
     }
+
+    @CrossOrigin
+    @GetMapping(path = "/itinerary/from/{origin}/to/{destination}")
+    public ResponseEntity<List<Trip>> getItinerary(@PathVariable String origin,
+                                                   @PathVariable String destination){
+      return service.getByOriginAndDestination(origin, destination);
+    }
 }
