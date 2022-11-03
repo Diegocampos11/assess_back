@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -15,7 +17,7 @@ import java.time.LocalDateTime;
 public class Trip {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
     @Column
     private String Company;
@@ -26,7 +28,7 @@ public class Trip {
     @Column
     private boolean luggage_allowance;
     @Column
-    private LocalDateTime dateTime;
+    private LocalDate dateTime;
 
 }
 
