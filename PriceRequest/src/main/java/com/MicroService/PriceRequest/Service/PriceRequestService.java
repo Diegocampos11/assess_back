@@ -23,7 +23,6 @@ public class PriceRequestService {
         List<Trip> trips = repository.findAll();
 
         return new ResponseEntity<>(trips, HttpStatus.ACCEPTED);
-
     }
 
     public ResponseEntity<List<Trip>> getByOrigin(String name) {
