@@ -18,10 +18,11 @@ import java.util.List;
 @NoArgsConstructor
 public class Reservation {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column
-    private int id_flight;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    private Trip id_flight;
     @Column
     private double price;
     @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
