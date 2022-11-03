@@ -44,10 +44,10 @@ public class ReservationService {
         int reservationPrice = 0;
         reservationPrice += calculateBaggageFee(reservation.getPassengers());
         for (Passenger passenger : reservation.getPassengers() ) {
-            if(calculateAge(reservation.getId_flight().getDateTime(),passenger.getBirthdate())<=2){
-                break;
+            if(calculateAge(reservation.getId_flight().getDateTime(),passenger.getBirthdate())>=2){
+                reservationPrice += reservation.getPrice();;
             }
-        reservationPrice += reservation.getPrice();
+
         }
         return reservationPrice;
     }
