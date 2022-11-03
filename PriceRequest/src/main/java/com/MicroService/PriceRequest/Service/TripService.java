@@ -1,6 +1,6 @@
 package com.MicroService.PriceRequest.Service;
 
-import com.MicroService.PriceRequest.Repositories.PriceRequestRepository;
+import com.MicroService.PriceRequest.Repositories.TripRepository;
 import com.MicroService.PriceRequest.models.Trip;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PriceRequestService {
-    public PriceRequestRepository repository;
+public class TripService {
+    public TripRepository repository;
 
-    public PriceRequestService(PriceRequestRepository repository) {
+    public TripService(TripRepository repository) {
         super();
         this.repository = repository;
     }
