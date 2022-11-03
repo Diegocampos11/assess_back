@@ -1,8 +1,6 @@
 package com.MicroService.PriceRequest;
 
-import com.MicroService.PriceRequest.Controller.PriceRequestController;
-import com.MicroService.PriceRequest.Repositories.PriceRequestRepository;
-import com.MicroService.PriceRequest.Service.PriceRequestService;
+import com.MicroService.PriceRequest.Service.TripService;
 import com.MicroService.PriceRequest.models.Trip;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
@@ -13,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.net.http.HttpResponse;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -22,7 +19,7 @@ import java.util.List;
 class PriceRequestApplicationTests {
 
 	@Autowired
-	PriceRequestService service;
+	TripService service;
 
 	@Test
 	void checkGetAllTrips() {
@@ -77,4 +74,20 @@ class PriceRequestApplicationTests {
 		Trip trip = (Trip) resResponse.getBody();
 		Assert.assertEquals(trip.getId(), 2 );
 	}
+<<<<<<< HEAD
+=======
+	@Test
+	void GetAllOriginsTest(){
+
+	}
+	@Test
+	void GetTripsByOriginAndDestination_OriginAndDestinationExist_ReturnsOk(){
+		ResponseEntity<List<Trip>> res = service.getByOriginAndDestination();
+		Assert.assertEquals(HttpStatus.ACCEPTED,202);
+
+	}
+
+
+
+>>>>>>> main
 }

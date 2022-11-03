@@ -1,29 +1,23 @@
 package com.MicroService.PriceRequest.Controller;
 
 
-import com.MicroService.PriceRequest.Repositories.PriceRequestRepository;
-import com.MicroService.PriceRequest.Service.PriceRequestService;
+import com.MicroService.PriceRequest.Service.TripService;
 import com.MicroService.PriceRequest.models.Trip;
-import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api/trips")
-public class PriceRequestController {
+public class TripController {
 
     @Autowired
-    private PriceRequestService service;
+    private TripService service;
 
-    public PriceRequestController(PriceRequestService service) {
+    public TripController(TripService service) {
         super();
         this.service = service;
     }
