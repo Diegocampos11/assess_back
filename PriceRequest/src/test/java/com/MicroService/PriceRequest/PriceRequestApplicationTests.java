@@ -1,6 +1,8 @@
 package com.MicroService.PriceRequest;
 
+import com.MicroService.PriceRequest.Service.PlaceService;
 import com.MicroService.PriceRequest.Service.TripService;
+import com.MicroService.PriceRequest.models.Place;
 import com.MicroService.PriceRequest.models.Trip;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
@@ -20,6 +22,9 @@ class PriceRequestApplicationTests {
 
 	@Autowired
 	TripService service;
+	@Autowired
+	PlaceService placeService;
+
 
 	@Test
 	void checkGetAllTrips() {
@@ -74,11 +79,12 @@ class PriceRequestApplicationTests {
 		Trip trip = (Trip) resResponse.getBody();
 		Assert.assertEquals(trip.getId(), 2 );
 	}
-<<<<<<< HEAD
-=======
+
 	@Test
 	void GetAllOriginsTest(){
+		ResponseEntity<List<Place>> resResponse = placeService.getAllPlaces();
 
+		Assert.assertEquals(resResponse.getBody().size(), 5);
 	}
 	@Test
 	void GetTripsByOriginAndDestination_OriginAndDestinationExist_ReturnsOk(){
@@ -87,8 +93,4 @@ class PriceRequestApplicationTests {
 		Assert.assertEquals(HttpStatus.ACCEPTED,res.getStatusCode());
 
 	}
-
-
-
->>>>>>> main
 }

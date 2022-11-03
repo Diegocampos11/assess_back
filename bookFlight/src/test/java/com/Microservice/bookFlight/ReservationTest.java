@@ -6,6 +6,7 @@ import com.Microservice.bookFlight.services.ReservationService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.ResponseEntity;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -43,5 +44,12 @@ class ReservationTest {
         LocalDate localDateExampleBirthdate = LocalDate.parse("2000-01-01");
         int age = reservationService.calculateAge(localDateExampleFlightDate, localDateExampleBirthdate);
         assertEquals(2, age);
+    }
+
+    @Test
+    void calculateBaggageFeeTest(){
+        ResponseEntity<Integer> resResponse = reservationService.calculateBaggageFee(5);
+
+        assertEquals(resResponse.getBody(), 5*20);
     }
 }
