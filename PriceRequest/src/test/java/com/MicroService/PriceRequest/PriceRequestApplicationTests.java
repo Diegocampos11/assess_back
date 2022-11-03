@@ -77,7 +77,4 @@ class PriceRequestApplicationTests {
 		Trip trip = (Trip) resResponse.getBody();
 		Assert.assertEquals(trip.getId(), 2 );
 	}
-
-
-
 }
