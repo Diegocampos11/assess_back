@@ -27,6 +27,7 @@ class ReservationTest {
                         "name",
                         "surname",
                         "nationality",
+                        "identification",
                         LocalDate.now(),
                         false
                 )
@@ -34,5 +35,13 @@ class ReservationTest {
         Reservation reservationExample = new Reservation(1, 1, 60, passengerListExample);
         Reservation reservationReturned = reservationService.addReservation(new Reservation(1, 1, 60, passengerListExample));
         assertEquals(reservationExample.toString(), reservationReturned.toString());
+    }
+
+    @Test
+    void calculateAge_WhenPassingCorrectData_ReturnsInt() {
+        LocalDate localDateExampleFlightDate = LocalDate.parse("2002-01-01");
+        LocalDate localDateExampleBirthdate = LocalDate.parse("2000-01-01");
+        int age = reservationService.calculateAge(localDateExampleFlightDate, localDateExampleBirthdate);
+        assertEquals(2, age);
     }
 }

@@ -26,6 +26,8 @@ public class Passenger {
     @Column
     private String nationality;
     @Column
+    private String identification;
+    @Column
     private LocalDate birthdate;
     @Column
     private boolean needLuggage;
@@ -36,6 +38,7 @@ public class Passenger {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", nationality='" + nationality + '\'' +
+                ", identification='" + identification + '\'' +
                 ", birthdate=" + birthdate +
                 ", needLuggage=" + needLuggage +
                 '}';
