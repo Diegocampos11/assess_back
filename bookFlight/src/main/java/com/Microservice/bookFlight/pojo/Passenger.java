@@ -1,5 +1,6 @@
 package com.Microservice.bookFlight.pojo;
 
+import com.Microservice.bookFlight.models.Reservation;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,7 +26,9 @@ public class Passenger {
     @Column
     private String nationality;
     @Column
-    private String birthdate;
+    private String identification;
+    @Column
+    private LocalDate birthdate;
     @Column
     private boolean needLuggage;
     @Override
@@ -35,6 +38,7 @@ public class Passenger {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", nationality='" + nationality + '\'' +
+                ", identification='" + identification + '\'' +
                 ", birthdate=" + birthdate +
                 ", needLuggage=" + needLuggage +
                 '}';
