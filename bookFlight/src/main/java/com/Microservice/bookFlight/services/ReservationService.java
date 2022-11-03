@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -37,5 +38,9 @@ public class ReservationService {
             System.out.println(passenger);
         }
         return reservationRepository.save(reservation);
+    }
+
+    public int calculateAge(LocalDate flightDate, LocalDate birthdate) {
+        return (int) (flightDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli() / 1000 - birthdate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli() / 1000) / 31536000;
     }
 }
