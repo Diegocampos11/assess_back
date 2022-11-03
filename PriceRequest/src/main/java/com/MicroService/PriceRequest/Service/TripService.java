@@ -62,4 +62,7 @@ public class TripService {
             return new ResponseEntity<>(res, HttpStatus.ACCEPTED);
         }
     }
+    public ResponseEntity<List<Trip>> getByOriginAndDestination(){
+        return null;
+    }
 }
