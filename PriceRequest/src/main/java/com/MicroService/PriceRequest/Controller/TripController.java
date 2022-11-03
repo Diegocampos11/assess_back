@@ -5,6 +5,7 @@ import com.MicroService.PriceRequest.Service.TripService;
 import com.MicroService.PriceRequest.models.Trip;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -65,5 +66,13 @@ public class TripController {
     @GetMapping(path = "/id/{id}")
     public ResponseEntity<?> getById(@PathVariable int id) {
         return service.getById(id);
+    }
+
+    @CrossOrigin
+    @GetMapping(path = "/itinerary/from/{origin}/to/{destination}")
+    public ResponseEntity<List<Trip>> getItinerary(@PathVariable String origin,
+                                                   @PathVariable String destination){
+
+        return service.getByOriginAndDestination(StringUtils.capitalize(origin),StringUtils.capitalize(destination));
     }
 }

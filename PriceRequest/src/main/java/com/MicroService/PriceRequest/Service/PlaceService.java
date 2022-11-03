@@ -21,4 +21,5 @@ public class PlaceService {
 
         return new ResponseEntity<>(places, HttpStatus.ACCEPTED);
     }
+
 }

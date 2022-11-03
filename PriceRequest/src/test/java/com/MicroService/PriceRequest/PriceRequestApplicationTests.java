@@ -82,8 +82,9 @@ class PriceRequestApplicationTests {
 	}
 	@Test
 	void GetTripsByOriginAndDestination_OriginAndDestinationExist_ReturnsOk(){
-		ResponseEntity<List<Trip>> res = service.getByOriginAndDestination();
-		Assert.assertEquals(HttpStatus.ACCEPTED,202);
+		ResponseEntity<List<Trip>> res = service.getByOriginAndDestination("Murcia","Valladolid");
+		System.out.println(res.getBody());
+		Assert.assertEquals(HttpStatus.ACCEPTED,res.getStatusCode());
 
 	}
 

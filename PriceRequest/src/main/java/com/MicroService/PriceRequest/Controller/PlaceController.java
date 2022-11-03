@@ -1,7 +1,6 @@
 package com.MicroService.PriceRequest.Controller;
 
 import com.MicroService.PriceRequest.Service.PlaceService;
-import com.MicroService.PriceRequest.Service.TripService;
 import com.MicroService.PriceRequest.models.Place;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
