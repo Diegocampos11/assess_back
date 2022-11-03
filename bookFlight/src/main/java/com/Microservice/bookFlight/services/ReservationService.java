@@ -34,11 +34,8 @@ public class ReservationService {
     }
 
     public Reservation addReservation(Reservation reservation) {
-
-        for (Passenger passenger : reservation.getPassengers() ) {
-            System.out.println(passenger);
-        }
-        return reservationRepository.save(reservation);
+        reservation.setPrice(calculateReservationPrice(reservation));
+        return reservation;
     }
     public int calculateReservationPrice(Reservation reservation){
         int reservationPrice = 0;

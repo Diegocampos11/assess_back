@@ -20,7 +20,6 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     @OneToOne(fetch = FetchType.EAGER)
     private Trip id_flight;
     @Column

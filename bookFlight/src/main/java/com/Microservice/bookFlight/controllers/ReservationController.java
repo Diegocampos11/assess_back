@@ -24,8 +24,8 @@ public class ReservationController {
     @PostMapping(path = "/register")
     public ResponseEntity<?> registerBooking(@RequestBody List<Reservation> reservations) {
         for(Reservation reservation : reservations) {
-            System.out.println(reservation);
-            reservationService.addReservation(reservation);
+            System.out.println(reservationService.addReservation(reservation));
+
         }
         return new ResponseEntity<>(null, HttpStatus.CREATED);
     }
