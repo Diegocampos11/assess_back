@@ -90,6 +90,5 @@ class PriceRequestApplicationTests {
 		ResponseEntity<List<Trip>> res = service.getByOriginAndDestination("Murcia","Valladolid");
 		System.out.println(res.getBody());
 		Assert.assertEquals(HttpStatus.ACCEPTED,res.getStatusCode());
-
 	}
 }
