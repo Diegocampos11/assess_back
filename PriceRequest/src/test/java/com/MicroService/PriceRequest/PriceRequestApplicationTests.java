@@ -63,16 +63,6 @@ class PriceRequestApplicationTests {
 	}
 
 	@Test
-	void GetByDate_ExpectTripsIn2022Jan01_ReturnsERROR() {
-		ResponseEntity<List<Trip>> resResponse = service.getByDateTime(LocalDateTime.parse("2022-01-01"));
-
-		for (Trip trip : resResponse.getBody()) {
-			Assert.assertEquals(LocalDate.parse("2022-01-01"), trip.getDateTime());
-
-		}
-	}
-
-	@Test
 	void GetById_ExpectTripWithId2_ReturnsERROR() {
 		ResponseEntity<?> resResponse = service.getById(2);
 		Trip trip = (Trip) resResponse.getBody();

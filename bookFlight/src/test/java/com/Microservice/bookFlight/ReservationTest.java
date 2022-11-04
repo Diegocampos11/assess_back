@@ -1,5 +1,6 @@
 package com.Microservice.bookFlight;
 
+import com.Microservice.bookFlight.models.Place;
 import com.Microservice.bookFlight.models.Trip;
 import com.Microservice.bookFlight.pojo.Passenger;
 import com.Microservice.bookFlight.models.Reservation;
@@ -46,14 +47,17 @@ class ReservationTest {
 
     }
 
-//    @Test
-//    void calculateReservationPrice_Expect90for2PassengersWithBaggage_ReturnsOK() {
-//        List<Passenger> passengers = Arrays.asList(new Passenger(7, "Juan", "Sánchez", "Spain", "44444444H", (LocalDate.parse("2002-11-11")), true),new Passenger(9, "Pepe", "Juárez", "Spain", "44344794H", (LocalDate.parse("2009-01-01")), true));
-//        Trip trip = new Trip(10, "Ryanair", "Valladolid","Madrid", true, LocalDateTime.parse("2022-11-03"), 25);
-//        Reservation reservation = new Reservation(5,trip, 25*passengers.size(), passengers);
-//        Integer resResponse = reservationService.calculateReservationPrice(reservation);
-//        assertEquals(25*passengers.size()+20*passengers.size(), resResponse);
-//
-//
-//    }
+    @Test
+    void calculateReservationPrice_Expect90for2PassengersWithBaggage_ReturnsOK() {
+        List<Passenger> passengers = Arrays.asList(new Passenger(7, "Juan", "Sánchez", "Spain", "44444444H", (LocalDate.parse("2002-11-11")), true),new Passenger(9, "Pepe", "Juárez", "Spain", "44344794H", (LocalDate.parse("2009-01-01")), true));
+        Place origin = new Place(10, "Valladolid", "https://fotos.hoteles.net/articulos/guia-ciudad-de-valladolid-5084-7.jpg");
+        Place destination = new Place(11, "Madrid", "https://img.freepik.com/foto-gratis/palacio-comunicacion-atardecer-verano-madrid_1398-2169.jpg?w=2000");
+
+        Trip trip = new Trip(10, "Ryanair",origin ,destination, true, LocalDateTime.of(2022, 11, 3, 15, 56), 25);
+        Reservation reservation = new Reservation(5,trip, 25*passengers.size(), passengers);
+        Integer resResponse = reservationService.calculateReservationPrice(reservation);
+        assertEquals(25*passengers.size()+20*passengers.size(), resResponse);
+
+
+    }
 }
