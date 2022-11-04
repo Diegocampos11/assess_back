@@ -30,7 +30,6 @@ class FrontendTestApplicationTests {
 		driver.manage().window().maximize();
 		Thread.sleep(1000);
 		List<WebElement> buttons = driver.findElements(By.tagName("button"));
-
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,350)", "");
 		WebElement button = driver.findElement(By.xpath("//body/div[@id='root']/div[1]/main[1]/section[1]/article[1]/div[1]/button[1]"));
@@ -38,6 +37,31 @@ class FrontendTestApplicationTests {
 		button.click();
 		String currentUrl = driver.getCurrentUrl();
 		assertEquals("http://localhost:3000/reservation", currentUrl);
+	}
+	@Test
+	public void  FormSubmitAddPassenger_ReturnsTrue() throws InterruptedException {
+		driver.get(url);
+		driver.manage().window().maximize();
+		Thread.sleep(1000);
+		List<WebElement> buttons = driver.findElements(By.tagName("button"));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,350)", "");
+		WebElement button = driver.findElement(By.xpath("//body/div[@id='root']/div[1]/main[1]/section[1]/article[1]/div[1]/button[1]"));
+		Thread.sleep(1000);
+		button.click();
+		driver.findElement(By.name("name")).sendKeys("Paco");
+		driver.findElement(By.name("surname")).sendKeys("Paco");
+		driver.findElement(By.name("nationality")).sendKeys("Afghan");
+		driver.findElement(By.name("id_number")).sendKeys("1111111k");
+		driver.findElement(By.name("birthdate")).sendKeys("01-01-2022");
+
+		Thread.sleep(2000);
+		driver.findElements(By.tagName("button")).get(0).click();
+		Thread.sleep(1000);
+		WebElement element = driver.findElement(By.xpath("//body/div[@id='root']/div[1]/main[1]/article[1]/div[1]/div[1]"));
+
+		assertEquals(true, element.isDisplayed());
+
 	}
 
 }
