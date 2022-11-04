@@ -1,5 +1,4 @@
 package com.MicroService.PriceRequest;
-
 import com.MicroService.PriceRequest.Service.TripService;
 import com.MicroService.PriceRequest.models.Trip;
 import org.junit.Assert;
@@ -10,7 +9,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
-
 import java.time.LocalDate;
 import java.util.List;
 
