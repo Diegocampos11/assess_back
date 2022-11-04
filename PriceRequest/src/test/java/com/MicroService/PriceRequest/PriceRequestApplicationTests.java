@@ -26,67 +26,67 @@ class PriceRequestApplicationTests {
 
 
 	@Test
-	void checkGetAllTrips() {
+	void GetAllTrips_Expect16Trips_ReturnsOK() {
 		ResponseEntity<List<Trip>> tripsResponse = service.getAll();
 
-		Assert.assertEquals(tripsResponse.getBody().size(), 16);
+		Assert.assertEquals(16, tripsResponse.getBody().size());
 	}
 
 	@Test
-	void checkGetByOrigin() {
+	void GetByOrigin_ExpectTripsWithOriginValladolid_ReturnsOK() {
 		ResponseEntity<List<Trip>> resResponse = service.getByOrigin("Valladolid");
 
 		for (Trip trip : resResponse.getBody())
 		{
-			Assert.assertEquals(trip.getOrigin().getName(), "Valladolid");
+			Assert.assertEquals("Valladolid", trip.getOrigin().getName());
 		}
 	}
 
 	@Test
-	void checkGetByDestiny() {
+	void GetByDestiny_ExpectTripsWithDestinationValladolid_ReturnsOK() {
 		ResponseEntity<List<Trip>> resResponse = service.getByDestiny("Valladolid");
 
 		for (Trip trip : resResponse.getBody())
 		{
-			Assert.assertEquals(trip.getDestination().getName(), "Valladolid");
+			Assert.assertEquals("Valladolid", trip.getDestination().getName());
 		}
 	}
 
 	@Test
-	void checkGetByAirLines() {
+	void GetByAirLines_ExpectTripsByRyanair_ReturnsOK() {
 		ResponseEntity<List<Trip>> resResponse = service.getByAirlines("Ryanair");
 
 		for (Trip trip : resResponse.getBody())
 		{
-			Assert.assertEquals(trip.getCompany(), "Ryanair");
+			Assert.assertEquals("Ryanair", trip.getCompany());
 		}
 	}
 
 	@Test
-	void checkGetByDate() {
-		ResponseEntity<List<Trip>> resResponse = service.getByDateTime(LocalDateTime.parse("2022-01-01 21:00:00"));
+	void GetByDate_ExpectTripsIn2022Jan01_ReturnsERROR() {
+		ResponseEntity<List<Trip>> resResponse = service.getByDateTime(LocalDateTime.parse("2022-01-01"));
 
-		for (Trip trip : resResponse.getBody())
-		{
-			Assert.assertEquals(trip.getDateTime(), LocalDate.parse("2022-01-01"));
+		for (Trip trip : resResponse.getBody()) {
+			Assert.assertEquals(LocalDate.parse("2022-01-01"), trip.getDateTime());
+
 		}
 	}
 
 	@Test
-	void checkGetById() {
+	void GetById_ExpectTripWithId2_ReturnsERROR() {
 		ResponseEntity<?> resResponse = service.getById(2);
 		Trip trip = (Trip) resResponse.getBody();
-		Assert.assertEquals(trip.getId(), 2 );
+		Assert.assertEquals(2, trip.getId());
 	}
 
 	@Test
-	void GetAllOriginsTest(){
+	void GetAllOrigins_ExpectListOfAllPlaces_ReturnsOK(){
 		ResponseEntity<List<Place>> resResponse = placeService.getAllPlaces();
 
-		Assert.assertEquals(resResponse.getBody().size(), 5);
+		Assert.assertEquals(5, resResponse.getBody().size());
 	}
 	@Test
-	void GetTripsByOriginAndDestination_OriginAndDestinationExist_ReturnsOk(){
+	void GetTripsByOriginAndDestination_ExpectOriginAndDestinationExist_ReturnsOK(){
 		ResponseEntity<List<Trip>> res = service.getByOriginAndDestination("Murcia","Valladolid");
 		System.out.println(res.getBody());
 		Assert.assertEquals(HttpStatus.ACCEPTED,res.getStatusCode());
