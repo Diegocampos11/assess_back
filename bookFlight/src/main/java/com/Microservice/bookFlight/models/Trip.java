@@ -21,14 +21,14 @@ public class Trip {
     private int Id;
     @Column
     private String Company;
-    @Column
-    private int origin_id;
-    @Column
-    private int destination_id;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Place origin;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Place destination;
     @Column
     private boolean luggage_allowance;
     @Column
-    private LocalDate dateTime;
+    private LocalDateTime dateTime;
     @Column
     private int price;
 

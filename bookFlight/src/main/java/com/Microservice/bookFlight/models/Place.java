@@ -1,11 +1,10 @@
-package com.MicroService.PriceRequest.models;
+package com.Microservice.bookFlight.models;
 
-import com.MicroService.PriceRequest.models.Enums.CityNames;
-
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import lombok.Getter;
-
-import java.util.List;
 
 @Entity
 @Getter
