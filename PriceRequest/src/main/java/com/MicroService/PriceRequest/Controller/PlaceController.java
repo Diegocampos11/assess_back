@@ -4,6 +4,7 @@ import com.MicroService.PriceRequest.Service.PlaceService;
 import com.MicroService.PriceRequest.models.Place;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +22,7 @@ public class PlaceController {
         super();
         this.service = service;
     }
+    @CrossOrigin
     @GetMapping("/all")
     public ResponseEntity<List<Place>> getAllOrigins(){
         return service.getAllPlaces();
