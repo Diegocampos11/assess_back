@@ -9,6 +9,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -55,9 +56,9 @@ public class TripController {
 
     @CrossOrigin
     @GetMapping(path = "/date/{date}")
-    public ResponseEntity<List<Trip>> getByDate(@PathVariable LocalDate date) {
+    public ResponseEntity<List<Trip>> getByDate(@PathVariable LocalDateTime dateTime) {
 
-        return service.getByDate(date);
+        return service.getByDateTime(dateTime);
 
 
     }

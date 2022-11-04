@@ -1,9 +1,5 @@
 package com.MicroService.PriceRequest;
-<<<<<<< HEAD
-=======
-
 import com.MicroService.PriceRequest.Service.PlaceService;
->>>>>>> 4b72888415b6f63fb9e003df7c529b0c24c4898f
 import com.MicroService.PriceRequest.Service.TripService;
 import com.MicroService.PriceRequest.models.Place;
 import com.MicroService.PriceRequest.models.Trip;
@@ -16,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
@@ -67,11 +64,11 @@ class PriceRequestApplicationTests {
 
 	@Test
 	void checkGetByDate() {
-		ResponseEntity<List<Trip>> resResponse = service.getByDate(LocalDate.parse("2022-01-01"));
+		ResponseEntity<List<Trip>> resResponse = service.getByDateTime(LocalDateTime.parse("2022-01-01 21:00:00"));
 
 		for (Trip trip : resResponse.getBody())
 		{
-			Assert.assertEquals(trip.getDate(), LocalDate.parse("2022-01-01"));
+			Assert.assertEquals(trip.getDateTime(), LocalDate.parse("2022-01-01"));
 		}
 	}
 

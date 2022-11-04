@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,9 +47,9 @@ public class TripService {
 
     }
 
-    public ResponseEntity<List<Trip>> getByDate(LocalDate date) {
+    public ResponseEntity<List<Trip>> getByDateTime(LocalDateTime dateTime) {
 
-        List<Trip> res = repository.findByDate(date);
+        List<Trip> res = repository.findByDateTime(dateTime);
         return new ResponseEntity<>(res, HttpStatus.ACCEPTED);
 
 
