@@ -2,8 +2,10 @@ package com.Microservice.bookFlight.services;
 
 
 import com.Microservice.bookFlight.models.Reservation;
+import com.Microservice.bookFlight.models.Trip;
 import com.Microservice.bookFlight.pojo.Passenger;
 import com.Microservice.bookFlight.repositories.ReservationRepository;
+import com.Microservice.bookFlight.repositories.TripRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -16,12 +18,13 @@ import java.util.Optional;
 
 @Service
 public class ReservationService {
-
+    //Repository Instances
     private ReservationRepository reservationRepository;
-
-    public ReservationService(ReservationRepository reservationRepository) {
+    private TripRepository tripRepository;
+    public ReservationService(ReservationRepository reservationRepository, TripRepository tripRepository) {
         super();
         this.reservationRepository = reservationRepository;
+        this.tripRepository = tripRepository;
     }
 
     public ResponseEntity<?> getById(int id) {
@@ -33,18 +36,22 @@ public class ReservationService {
         }
     }
 
-    public Reservation addReservation(Reservation reservation) {
-        reservation.setPrice(calculateReservationPrice(reservation));
-        return reservation;
+    public List<Reservation> addReservation(List<Reservation> reservations) {
+        for(Reservation reservation : reservations) {
+            reservation.setPrice(calculateReservationPrice(reservation));
+        }
+        System.out.println(reservations);
+        return reservations;
     }
     public int calculateReservationPrice(Reservation reservation){
+        Optional<Trip> tripReservation = tripRepository.findById(reservation.getId_flight().getId());
+        Trip trip = tripReservation.get();
         int reservationPrice = 0;
         reservationPrice += calculateBaggageFee(reservation.getPassengers());
         for (Passenger passenger : reservation.getPassengers() ) {
             if(calculateAge(reservation.getId_flight().getDateTime(),passenger.getBirthdate())>=2){
-                reservationPrice += reservation.getPrice();;
+                reservationPrice += trip.getPrice();
             }
-
         }
         return reservationPrice;
     }

@@ -22,13 +22,15 @@ public class Trip {
     @Column
     private String Company;
     @Column
-    private int place_origin_id;
+    private int origin_id;
     @Column
-    private int place_destination_id;
+    private int destination_id;
     @Column
     private boolean luggage_allowance;
     @Column
     private LocalDate dateTime;
+    @Column
+    private int price;
 
 }
 
