@@ -21,6 +21,7 @@ public class ReservationController {
         super();
         this.reservationService = reservationService;
     }
+    @CrossOrigin
     @PostMapping(path = "/register")
     public ResponseEntity<?> registerBooking(@RequestBody List<Reservation> reservations) {
        List<Reservation> res = reservationService.addReservation(reservations);
